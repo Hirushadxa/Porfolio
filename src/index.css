@@ -22,34 +22,14 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
-.light {
-  --color-bg: #fdfdfc;
-  --color-surface: #f0f0eb;
-  --color-line: #e0e0d6;
-
-  --color-fg: #13131a;
-  --color-fg-muted: #4a4a52;
-  --color-fg-subtle: #8a8a93;
-
-  --color-accent: #f5b84e;
-  --color-accent-hover: #e0a33a;
-  --color-accent-dim: #cca86e;
-}
-
 /* ─── Global resets ─── */
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-/* Fallback for Firefox */
-@supports (-moz-appearance: none) {
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-accent-dim) transparent;
-  }
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface) var(--color-bg);
 }
 
 html {
@@ -105,19 +85,20 @@ body {
 }
 
 /* Custom Scrollbar */
-html::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-html::-webkit-scrollbar-track {
-  background: transparent;
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
 }
-html::-webkit-scrollbar-thumb {
-  background: var(--color-accent-dim);
-  border-radius: 10px;
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
 }
-html::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-line);
 }
 
 /* ─── Custom utilities ─── */
