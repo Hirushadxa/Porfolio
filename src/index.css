@@ -28,8 +28,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-accent-dim) transparent;
+}
+
+/* Fallback for Firefox */
+@supports (-moz-appearance: none) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-dim) transparent;
+  }
 }
 
 html {
