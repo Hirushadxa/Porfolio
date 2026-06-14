@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import Container from './Container';
 
 const NAV_LINKS = [
@@ -16,6 +16,14 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cinematicActive, setCinematicActive] = useState(true);
+
+  const [isLight, setIsLight] = useState(false);
+  const [lang, setLang] = useState('EN');
+
+  useEffect(() => {
+    if (isLight) document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
+  }, [isLight]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -88,6 +96,26 @@ export default function Nav() {
                 </a>
               </span>
             ))}
+            
+            {/* Controls */}
+            <div className="ml-4 flex items-center gap-4 border-l border-line pl-4">
+              <button
+                type="button"
+                className="text-fg-muted transition-colors duration-200 hover:text-accent"
+                onClick={() => setLang(l => (l === 'EN' ? 'DE' : 'EN'))}
+                aria-label="Toggle Language"
+              >
+                <span className="font-mono text-sm font-bold">{lang}</span>
+              </button>
+              <button
+                type="button"
+                className="text-fg-muted transition-colors duration-200 hover:text-accent"
+                onClick={() => setIsLight(l => !l)}
+                aria-label="Toggle Theme"
+              >
+                {isLight ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile hamburger */}
@@ -140,6 +168,29 @@ export default function Nav() {
                     {link.label}
                   </motion.a>
                 ))}
+                
+                <motion.div
+                  className="mt-8 flex items-center gap-6 border-t border-line pt-8"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.3 }}
+                >
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 font-mono text-lg text-fg-muted transition-colors duration-200 hover:text-accent"
+                    onClick={() => setLang(l => (l === 'EN' ? 'DE' : 'EN'))}
+                  >
+                    {lang}
+                  </button>
+                  <span className="text-line">|</span>
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 text-fg-muted transition-colors duration-200 hover:text-accent"
+                    onClick={() => setIsLight(l => !l)}
+                  >
+                    {isLight ? <Moon className="h-6 w-6" /> : <Sun className="h-6 w-6" />}
+                  </button>
+                </motion.div>
               </div>
             </motion.div>
           )}

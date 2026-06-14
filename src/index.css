@@ -22,6 +22,20 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
+.light {
+  --color-bg: #fdfdfc;
+  --color-surface: #f0f0eb;
+  --color-line: #e0e0d6;
+
+  --color-fg: #13131a;
+  --color-fg-muted: #4a4a52;
+  --color-fg-subtle: #8a8a93;
+
+  --color-accent: #f5b84e;
+  --color-accent-hover: #e0a33a;
+  --color-accent-dim: #cca86e;
+}
+
 /* ─── Global resets ─── */
 
 *,
