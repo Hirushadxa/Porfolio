@@ -91,18 +91,18 @@ body {
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
+html::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background: transparent;
 }
-::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: var(--color-accent-dim);
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
 }
 
