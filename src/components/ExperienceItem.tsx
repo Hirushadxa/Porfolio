@@ -12,7 +12,7 @@ interface ExperienceItemProps {
  */
 export default function ExperienceItem({ item }: ExperienceItemProps) {
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[180px_1fr] lg:gap-12">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[180px_1fr] lg:gap-16">
       {/* Left: period */}
       <span className="font-mono text-sm text-fg-subtle lg:pt-1">
         {item.period}
@@ -28,7 +28,7 @@ export default function ExperienceItem({ item }: ExperienceItemProps) {
           {item.company} — {item.location}
         </p>
 
-        <ul className="mt-4 space-y-2">
+        <ul className="mt-6 space-y-4">
           {item.bullets.map((bullet) => (
             <li
               key={bullet}
