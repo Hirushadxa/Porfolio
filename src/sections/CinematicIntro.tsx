@@ -113,7 +113,7 @@ export default function CinematicIntro() {
     "I'm a 5th-semester Digital Technology & Management student at OTH Amberg-Weiden, where I'm learning to operate at the intersection of engineering and strategy. My academic focus spans IoT and sensor technology, applied AI and computer vision in smart factories, BI and data modelling, and the business processes that translate technology into outcomes.";
 
   const aboutParagraph2 =
-    "Before Germany, I worked at Singer Sri Lanka PLC as a Junior Executive in IT, where I learned that the difference between a good system and a useful one is whoever's sitting in front of it. That stuck with me, I now build with users in mind, whether it's a Power BI dashboard, a smart-camera quality station, or a freelance website.";
+    "Before Germany, I worked at Singer Sri Lanka PLC as a Junior Executive in IT, where I learned that the difference between a good system and a useful one is whoever's sitting in front of it. That stuck with me — I now build with users in mind, whether it's a Power BI dashboard, a smart-camera quality station, or a freelance website.";
 
   const aboutLanguageLine = (
     <>
@@ -313,6 +313,8 @@ export default function CinematicIntro() {
         {/* Scroll cue */}
         <div className="flex items-center gap-2 font-mono text-sm text-fg-subtle pointer-events-auto">
           <span>(Scroll down)</span>
+          <span className="text-fg-subtle/50">·</span>
+          <span>(Move cursor to interact)</span>
           <motion.span
             animate={prefersReduced ? {} : { y: [0, 3, 0] }}
             transition={{

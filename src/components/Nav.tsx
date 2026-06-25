@@ -55,9 +55,10 @@ export default function Nav() {
   return (
     <nav
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'border-b border-line bg-surface/80 backdrop-blur-md' : 'border-b border-transparent'
+        scrolled ? 'border-b border-line' : 'border-b border-transparent'
       }`}
       style={{
+        opacity: cinematicActive ? 0 : 1,
         pointerEvents: cinematicActive ? 'none' : 'auto',
       }}
     >
